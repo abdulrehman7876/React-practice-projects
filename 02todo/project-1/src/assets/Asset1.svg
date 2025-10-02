@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.39 155.39">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-3 {
+        fill: #f15a24;
+        font-family: LuckySkirt-Regular, 'Lucky Skirt';
+        font-size: 62.39px;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #f15a24;
+        stroke-dasharray: 0 0 11.77 11.77;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <rect class="cls-1" x="2" y="2" width="151.39" height="151.39" rx="23.61" ry="23.61"/>
+      <rect class="cls-4" x="2" y="2" width="151.39" height="151.39" rx="23.61" ry="23.61"/>
+    </g>
+    <text class="cls-3" transform="translate(17.64 97.72)"><tspan class="cls-2" x="0" y="0">T</tspan><tspan x="23.71" y="0">ODO</tspan></text>
+  </g>
+</svg>

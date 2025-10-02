@@ -1,0 +1,160 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  background-image: url(/image.webp);
+  background-size: cover;  
+  background-position: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#root{
+  height: 100%;
+  width: 100%;  
+  display: grid;
+  place-content: center;
+}
+.main{
+  height: 60vmin;
+  width: 100vmin; 
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid white;
+  display: grid;
+  place-content: center;
+  grid-template-rows: repeat(4, min-content);
+  justify-items: center;
+  /* align-items: stretch; */
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+}
+
+.container{
+  height: 20vmin;
+  width: 80vmin;
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-items: end;
+  gap: 20px;
+  border-radius: 10px;
+  padding: 0.8rem;
+}
+
+.container input{
+  height: 7vmin;
+  width: 40vmin;
+  outline: none;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid gray;
+  background-color: white;
+}
+
+.swap{
+  height: 5vmin;
+  width: 10vmin;
+  margin: -1.5vmin 0 -1.5vmin 0;
+  z-index: 1;
+  background-color: gold;
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(255, 238, 141);
+  }
+}
+.convert{
+  height: 10vmin;
+  width: 80vmin;
+  font-size: 1.1rem;
+  margin-top: 2vmin;
+  z-index: 1;
+  background-color: gold;
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(255, 238, 141);
+  }
+}
+
+
+.label{
+  display: grid;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+.label-select{
+  font-size: 1.2rem;
+  display: grid;
+  gap: 10px;
+  /* margin-left: 50px; */
+}
+
+.flag{
+  height: 8vmin;
+  width: auto;
+}
+
+.select{
+  height: 7vmin;
+  width: 22vmin;
+  background-color: white;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.select select {
+  height: 5vmin;
+  width: 12vmin;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background-color: white;
+}
+
+@media (width < 550px) {
+  #root{
+    width: 100vw;
+  }  
+  .main{
+    height: 100vmin;
+  }
+  .select{
+    height: 7vmin;
+    width: 20vmin;
+  }
+  .container{
+    height: 30vmin;
+    gap: 10px;
+  }
+  
+  .select{
+    height: 10vmin;
+    width: 25vmin;
+  }
+  .select select {
+    height: 7vmin;
+    width: 15vmin;
+}
+
+  .swap{
+    height: 7vmin;
+    width: 15vmin;
+  }
+
+  .label, .label-select{
+    font-size: 1rem;
+  }
+}

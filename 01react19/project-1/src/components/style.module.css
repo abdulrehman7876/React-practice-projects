@@ -1,0 +1,41 @@
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.main{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading{
+  font-size: 3rem;
+}
+
+.btn{
+  border: none;
+  height: 60px;
+  width: 150px;
+  background-color: lightsalmon;
+  font-size: 1.2rem;
+}
+
+.btn:hover{
+    background-color: aqua;
+    cursor: pointer;
+  } */

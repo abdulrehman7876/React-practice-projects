@@ -1,0 +1,50 @@
+/* html,body{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.btn-style {
+  transform: translate(150px, -200px);
+  height : 5rem;
+  width : 10rem;
+  background-color : rgb(207, 207, 207);
+  border-radius : 50px;
+  padding: 5px;
+  border: 2px solid black;
+}
+
+.divStyle {
+  height : 100%;
+  width : 45%;
+  border-radius: 50%;
+  background-color : red;
+  display : flex;
+  align-items : center;
+  justify-content: center;
+  animation: transf 1s linear 1 alternate;
+  transition: all 0.3s linear;
+  
+}
+.ON{
+  transform: translateX(120%);
+  background-color : rgb(67, 185, 67);
+}
+
+.Off{
+  transform: translateX(0);
+  background-color : rgb(255, 99, 99);
+}
+@keyframes left {
+    0% {
+        translate: 0 0;
+    }
+
+    100% {
+        translate: 90% 0;
+        background-color: blue;
+    }
+} */

@@ -1,0 +1,182 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body,html{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  background-image: url("/image.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+:root{
+  --elm-color: white;
+  --heading-color: black;
+  --btns-text-color: rgb(91, 48, 0);
+  --border-color: #8CB369;
+}
+
+.main-content{
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.heading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--heading-color);
+}
+
+
+.true{
+  text-decoration: line-through;
+}
+.false{
+  text-decoration: none;
+}
+
+.main{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-items: stretch;
+}
+
+
+.todo-elm{
+  margin-top: 20px;
+}
+
+.elm-div {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 10rem 9rem 2rem 2.5rem;
+  grid-auto-rows: auto;
+  grid-template-rows: auto;
+  gap: 20px;
+  color: var(--btns-text-color);
+  background-color: var(--elm-color);
+  padding: 0.3rem;
+  border-radius: 30px;
+  align-items: center;
+  border: 2px solid var(--border-color);
+}
+
+
+.input{
+  height: 2rem;
+  width: 20rem;
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  background-color: var(--elm-color);
+}
+
+.date{
+  border: solid var(--border-color);
+  border-width: 2px 0;
+  width: 1rem;
+  height: auto;
+  padding: 0.4rem;
+  color: transparent;
+  font-size: 1rem;
+  outline: none;
+  background-color: var(--elm-color);
+  cursor: pointer;
+}
+
+.todo{
+  width: auto;
+  padding: 0.4rem;
+  font-size: 1rem;
+  overflow-wrap: break-word;
+  font-weight: 600;
+}
+
+.todoapp{
+  background-color: var(--elm-color);
+}
+
+.add-btn {
+  height: auto;
+  width: 5rem;
+  font-size: 1rem;
+  background-color: var(--elm-color);
+  cursor: pointer;
+  border-radius: 0 50px 50px 0 ;
+  border: 2px solid var(--border-color);
+  outline: none;
+  color: var(--btns-text-color);
+  font-weight: 600;  
+} 
+.add-btn:hover{
+    background-color: var(--border-color);
+    color: var(--elm-color);
+  }
+
+
+.tick-btn,
+.del-btn {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.check{
+  color: #1fa24b;
+  font-size: 1.9rem;
+}
+.check:hover{
+  color: #03200c;
+}
+.del{
+  color: #e81721;
+  font-size: 2.7rem;
+}
+.del:hover{
+  color: #5b050a;
+}
+
+@media screen and (width < 530px) {
+  h1{
+    width: auto;
+  }
+  .input{
+    width: 16rem;
+  }
+  .add-btn {
+    font-size: 0.9rem;
+  }
+  .elm-div{
+    gap: 5px;
+    font-size: 1rem;
+    grid-template-columns: 9rem 8rem 2rem 3rem;
+  }
+  .todo{
+    font-size: 1.2rem;
+  }
+  
+}

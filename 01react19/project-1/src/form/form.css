@@ -1,0 +1,26 @@
+/* * {
+  padding: 0;
+  margin: 0;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background-color: rgb(45, 171, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30rem;
+  width: 20rem;
+  flex-wrap: wrap;
+}
+
+.input {
+  width: 20rem;
+} */
