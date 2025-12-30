@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function useProductId(id) {
+function useItemProduct(id) {
   const [categoryData, setCategoryData] = useState([]);
 
   useEffect(() => {
@@ -20,8 +20,7 @@ function useProductId(id) {
 
     fetchCategoryData();
   }, [id]);
-  // console.log(categoryData);
   return categoryData;
 }
 
-export default useProductId;
+export default useItemProduct;

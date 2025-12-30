@@ -21,7 +21,7 @@ export const Hmenu = ({ isActive, setIsActive }) => {
           </i>
           <i
             onClick={() => setIsActive(false)}
-            className="text-white text-2xl absolute left-[100%] ml-1 mt-1 outline p-2 rounded-sm cursor-pointer"
+            className={`text-white text-2xl absolute left-[100%] ${hidden} ml-1 mt-1 outline p-2 rounded-sm cursor-pointer`}
           >
             <RxCross1 />
           </i>

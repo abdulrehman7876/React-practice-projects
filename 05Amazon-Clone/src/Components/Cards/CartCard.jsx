@@ -1,11 +1,9 @@
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
-import { useEffect } from "react";
 
 export const CartCard = ({
   img,
   title,
-  userClass,
   price,
   description,
   elmId,
@@ -15,20 +13,11 @@ export const CartCard = ({
   setIdCartCount,
   cartCount,
   setCartCount,
-  totalPrice,
   setTotalPrice,
 }) => {
-  // useEffect(() => {
-  //   // console.log("totalPrice", totalPrice);
-  //   // setTotalPrice((prev) => (prev * 100 + Number(price) * 100) / 100);
-  //   if (idCartCount[elmId] > 0) {
-  //     setTotalPrice((prev) => prev * idCartCount[elmId]);
-  //   }
-  // }, []);
-
   return (
     <>
-      <div className="grid grid-cols-[1.5fr_4fr_0.3fr] py-5 border-b-1 border-gray-200">
+      <div className="grid grid-rows-[1.5fr_1fr_0.3fr] sm:grid-rows-[auto] sm:grid-cols-[1.5fr_4fr_0.3fr] py-5 border-b-1 border-gray-200">
         <div className="h-[200px]">
           <img className="h-full object-cover" src={img} alt="" />
         </div>
@@ -90,6 +79,7 @@ export const CartCard = ({
                     }
                   })
                 );
+                setCartCount((prev) => prev - idCartCount[elmId]);
               }}
               className="text-xs text-blue-800 cursor-pointer"
             >

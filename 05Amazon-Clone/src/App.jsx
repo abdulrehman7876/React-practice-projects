@@ -21,6 +21,10 @@ function App() {
     () => localStorage.getItem("category") || "womens-dresses"
   );
 
+  const [itemId, setItemId] = useState(
+    () => localStorage.getItem("itemId") || "90"
+  );
+
   // search
   const [search, setSearch] = useState("");
 
@@ -41,6 +45,10 @@ function App() {
     localStorage.setItem("idCartCount", JSON.stringify(idCartCount));
   }, [idCartCount]);
 
+  useEffect(() => {
+    localStorage.setItem("idItem", JSON.stringify(itemId));
+  }, [itemId]);
+
   return (
     <>
       <Header cartCount={cartCount} search={search} setSearch={setSearch} />
@@ -60,6 +68,8 @@ function App() {
           setIdCartCount,
           search,
           setSearch,
+          itemId,
+          setItemId,
         }}
       />
       <Footer />
@@ -68,15 +78,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /* <Section cartCount={cartCount} setCartCount={setCartCount} />
-      <ProductSection
-        cartCount={cartCount}
-        setCartCount={setCartCount}
-        range={range}
-        setRange={setRange}
-        rangeLeft={rangeLeft}
-        setLeftRange={setLeftRange}
-      /> */
-}

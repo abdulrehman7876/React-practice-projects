@@ -8,7 +8,7 @@ export const Footer = () => {
         >
           Back to top
         </button>
-        <div className="grid grid-cols-[repeat(4,max-content)] p-[30px_0] text-sm w-full bg-[#222f3d] text-white justify-center gap-30">
+        <div className="grid grid-cols-[repeat(2,max-content)] sm:grid-cols-[repeat(2,max-content)] lg:grid-cols-[repeat(4,max-content)] p-[30px_0] text-sm w-full bg-[#222f3d] text-white justify-center gap-10 sm:gap-30">
           <div className="flex flex-col gap-2">
             <span className="text-white text-lg font-bold">Get to Know Us</span>
             <a>Careers</a>
@@ -34,7 +34,7 @@ export const Footer = () => {
               with Us
             </a>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="sm:flex flex-col gap-2 hidden">
             <span className="text-white text-sm font-bold">
               Amazon Payment Products
             </span>
@@ -43,7 +43,7 @@ export const Footer = () => {
             <a>Reload Your Balance</a>
             <a>Amazon Currency Converter</a>
           </div>
-          <div className="flex flex-col gap-2">
+          <div className="sm:flex flex-col gap-2 hidden">
             <span className="text-white text-sm font-bold">
               Let Us Help You
             </span>
@@ -70,7 +70,7 @@ export const Footer = () => {
             <a>Help</a>
           </div>
         </div>
-        <div className="h-25 bg-[#222f3d] border-t-[0.1px] border-gray-600 flex items-center justify-center gap-2">
+        <div className="hidden h-25 bg-[#222f3d] border-t-[0.1px] border-gray-600 sm:flex items-center justify-center gap-2">
           <a href="" className="mr-20">
             <img className="h-15" src="/amazon_logo.png" alt="" />
           </a>
@@ -88,8 +88,8 @@ export const Footer = () => {
             United States
           </div>
         </div>
-        <div className="w-full bg-[#131a22] text-gray-400 text-xs p-10">
-          <ul className="grid grid-cols-[repeat(7,122px)] grid-rows-[repeat(4,67px)] justify-center gap-x-5">
+        <div className="hidden sm:flex justify-center w-full bg-[#131a22] text-gray-400 text-xs p-10">
+          <ul className="grid grid-cols-[repeat(5,122px)] auto-rows-auto lg:grid-cols-[repeat(7,122px)] lg:grid-rows-[repeat(4,67px)] justify-center gap-x-5">
             <li>
               <h5 className="text-white ">Amazon Music</h5>
               <span>

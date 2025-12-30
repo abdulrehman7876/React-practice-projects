@@ -12,7 +12,7 @@ export const CardFull = ({ img1, heading, userClass, shop }) => {
         </div>
         <div className="w-full text-blue-800 absolute bottom-5 left-5 text-sm">
           <span>
-            <a href="">{shop}</a>
+            <span>{shop}</span>
           </span>
         </div>
       </div>

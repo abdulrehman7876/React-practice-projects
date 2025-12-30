@@ -7,7 +7,6 @@ export const CartSection = () => {
   const { id, setId, cartCount, setCartCount, idCartCount, setIdCartCount } =
     useOutletContext();
   const idData = useProductId(id);
-  // console.log(id);
 
   const [totalPrice, setTotalPrice] = useState(0);
   let tempPrice = 0;
@@ -21,7 +20,6 @@ export const CartSection = () => {
           ...prev,
           [elm]: idCartCount[elm],
         }));
-        // console.log("if", elm);
       }
     });
   }, [setIdCartCount]);
@@ -36,13 +34,13 @@ export const CartSection = () => {
 
   return (
     <>
-      <section className="bg-gray-200 p-[14px_18px_18px] flex gap-5 w-full">
-        <div className="bg-white w-[75%]">
+      <section className="bg-gray-200 p-[14px_18px_18px] flex-col-reverse flex sm:flex-row gap-5 w-full">
+        <div className="bg-white w-full sm:w-[75%]">
           <div className="p-[20px]">
             <h2 className="text-3xl">Shopping Cart</h2>
             <div className="w-full flex justify-end border-b-1 border-gray-200">
               <div>
-                <span className="text-sm">Price</span>
+                <span className="text-sm hidden sm:flex">Price</span>
               </div>
             </div>
             <div className="grid auto-rows-auto">
@@ -74,7 +72,7 @@ export const CartSection = () => {
             </div>
           </div>
         </div>
-        <div className="bg-white p-[20px] text-lg h-[150px] w-[25%]">
+        <div className="bg-white p-[20px] text-lg h-[150px] w-full sm:w-[25%]">
           <div>
             <span className="font-normal">Subtotal ({cartCount} items): </span>
             <span className="font-bold">${totalPrice}</span>

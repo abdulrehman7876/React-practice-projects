@@ -1,9 +1,10 @@
-*{
+* {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
-body,html{
+body,
+html {
   height: 100%;
   width: 100%;
   display: flex;
@@ -14,14 +15,14 @@ body,html{
   background-size: cover;
 }
 
-:root{
+:root {
   --elm-color: white;
   --heading-color: black;
-  --btns-text-color: rgb(91, 48, 0);
-  --border-color: #8CB369;
+  --btns-text-color: black;
+  --border-color: #000000;
 }
 
-.main-content{
+.main-content {
   height: auto;
   background-color: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(5px);
@@ -33,7 +34,7 @@ body,html{
   flex-direction: column;
 }
 
-.heading{
+.heading {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,15 +43,14 @@ body,html{
   color: var(--heading-color);
 }
 
-
-.true{
+.true {
   text-decoration: line-through;
 }
-.false{
+.false {
   text-decoration: none;
 }
 
-.main{
+.main {
   height: 100%;
   width: 100%;
   display: flex;
@@ -58,15 +58,14 @@ body,html{
   align-items: stretch;
 }
 
-
-.todo-elm{
+.todo-elm {
   margin-top: 20px;
 }
 
 .elm-div {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 10rem 9rem 2rem 2.5rem;
+  grid-template-columns: 13rem 12rem 2rem 3rem;
   grid-auto-rows: auto;
   grid-template-rows: auto;
   gap: 20px;
@@ -78,40 +77,40 @@ body,html{
   border: 2px solid var(--border-color);
 }
 
-
-.input{
+.input {
   height: 2rem;
   width: 20rem;
   padding: 0.4rem;
+  padding-left: 1rem;
   font-size: 1rem;
   border: 2px solid var(--border-color);
-  border-radius: 20px 0 0 20px;
+  border-radius: 30px 0 0 30px;
   outline: none;
   background-color: var(--elm-color);
 }
 
-.date{
+.date {
   border: solid var(--border-color);
   border-width: 2px 0;
-  width: 1rem;
+  width: 7rem;
   height: auto;
   padding: 0.4rem;
-  color: transparent;
+  color: gray;
   font-size: 1rem;
   outline: none;
   background-color: var(--elm-color);
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
-.todo{
+.todo {
   width: auto;
   padding: 0.4rem;
   font-size: 1rem;
   overflow-wrap: break-word;
-  font-weight: 600;
+  font-weight: 300;
 }
 
-.todoapp{
+.todoapp {
   background-color: var(--elm-color);
 }
 
@@ -121,17 +120,16 @@ body,html{
   font-size: 1rem;
   background-color: var(--elm-color);
   cursor: pointer;
-  border-radius: 0 50px 50px 0 ;
+  border-radius: 0 50px 50px 0;
   border: 2px solid var(--border-color);
   outline: none;
   color: var(--btns-text-color);
-  font-weight: 600;  
-} 
-.add-btn:hover{
-    background-color: var(--border-color);
-    color: var(--elm-color);
-  }
-
+  font-weight: 600;
+}
+.add-btn:hover {
+  background-color: var(--border-color);
+  color: var(--elm-color);
+}
 
 .tick-btn,
 .del-btn {
@@ -145,38 +143,39 @@ body,html{
   border: none;
 }
 
-.check{
+.check {
   color: #1fa24b;
   font-size: 1.9rem;
 }
-.check:hover{
+.check:hover {
   color: #03200c;
 }
-.del{
+.del {
   color: #e81721;
   font-size: 2.7rem;
 }
-.del:hover{
+.del:hover {
   color: #5b050a;
 }
 
-@media screen and (width < 530px) {
-  h1{
+@media (width < 530px) {
+  h1 {
     width: auto;
   }
-  .input{
-    width: 16rem;
+  .input {
+    width: 50%;
   }
   .add-btn {
     font-size: 0.9rem;
   }
-  .elm-div{
+  .elm-div {
     gap: 5px;
     font-size: 1rem;
-    grid-template-columns: 9rem 8rem 2rem 3rem;
+    grid-template-columns:
+      minmax(7rem, 9rem) minmax(6rem, 8rem) minmax(2rem, 2rem)
+      minmax(2rem, 3rem);
   }
-  .todo{
-    font-size: 1.2rem;
+  .todo {
+    font-size: 1rem;
   }
-  
 }

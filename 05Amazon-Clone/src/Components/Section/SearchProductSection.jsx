@@ -1,6 +1,5 @@
 import { useOutletContext } from "react-router";
 import { ProductCard } from "../Cards/ProductCard";
-import useProductData from "../../Hooks/useProductData";
 import { useEffect, useState } from "react";
 import { MdOutlineStarOutline, MdOutlineStarPurple500 } from "react-icons/md";
 import useAllProducts from "../../Hooks/useAllProducts";
@@ -13,28 +12,17 @@ export const SearchProductSection = () => {
     setRange,
     rangeLeft,
     setLeftRange,
-    category,
     id,
     setId,
     idCartCount,
     setIdCartCount,
     search,
-    setSearch,
+    setItemId,
   } = useOutletContext();
-  const data = useAllProducts();
+  const data = useAllProducts("limit=0");
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
-
-  // if (data) {
-  //   const filterData = data.products.filter((elm) =>
-  //   );
-  // }
-  // useEffect(() => {
-  //   for (let ind in idCartCount) {
-  //     setIdCartCount(idCartCount[ind] > 0);
-  //   }
-  // }, [setIdCartCount]);
 
   const [tempRange, setTempRange] = useState(range);
   const [tempLeftRange, setTempLeftRange] = useState(rangeLeft);
@@ -46,8 +34,8 @@ export const SearchProductSection = () => {
 
   return (
     <>
-      <section className="w-full grid grid-cols-[1fr_3.9fr] p-2">
-        <div className="text-black text-sm font-bold px-2 flex flex-col gap-3">
+      <section className="w-full grid sm:grid-cols-[1fr_3.9fr] p-2">
+        <div className="text-black text-sm font-bold px-2 sm:flex flex-col gap-3 hidden">
           {/* range  */}
           <div>
             <h3>Price</h3>
@@ -182,6 +170,7 @@ export const SearchProductSection = () => {
                     return (
                       <ProductCard
                         key={elm.id}
+                        description={elm.description}
                         img={elm.thumbnail || ""}
                         title={elm.title}
                         price={elm.price}
@@ -193,6 +182,7 @@ export const SearchProductSection = () => {
                         setId={setId}
                         idCartCount={idCartCount}
                         setIdCartCount={setIdCartCount}
+                        setItemId={setItemId}
                       />
                     );
                   }
@@ -209,12 +199,3 @@ export const SearchProductSection = () => {
     </>
   );
 };
-
-// <ProductCard
-//   key={elm.id}
-//   img="https://m.media-amazon.com/images/I/71Z1Bk+8Z4L._AC_UL480_FMwebp_QL65_.jpg"
-//   title="MSI Codex Z2 Gaming Desktop: AMD R7-8700F, GeForce RTX 5070, 32GB DDR5, 2TB m.2 NVMe SSD,"
-//   price="$1,699"
-//   cartCount={cartCount}
-//   setCartCount={setCartCount}
-// />

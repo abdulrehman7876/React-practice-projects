@@ -12,6 +12,7 @@ import { ProductSection } from "./Components/Section/ProductSection.jsx";
 import { StrictMode } from "react";
 import { CartSection } from "./Components/Section/CartSection.jsx";
 import { SearchProductSection } from "./Components/Section/SearchProductSection.jsx";
+import { ItemsSection } from "./Components/Section/ItemSection.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="productsection" element={<ProductSection />} />
       <Route path="cartsection" element={<CartSection />} />
       <Route path="searched" element={<SearchProductSection />} />
+      <Route path="item" element={<ItemsSection />} />
     </Route>
   )
 );

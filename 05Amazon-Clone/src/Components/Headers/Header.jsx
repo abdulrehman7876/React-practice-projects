@@ -16,7 +16,7 @@ export const Header = ({ cartCount, search, setSearch }) => {
     <>
       <Hmenu isActive={isActive} setIsActive={setIsActive} />
 
-      <nav className="w-full bg-[#131A22] flex font-[Arial] gap-1 items-center px-1">
+      <nav className="w-full bg-[#131A22] flex font-[Arial] gap-1 items-center justify-between px-1">
         {/* navbar start */}
         <Link
           to=""
@@ -28,7 +28,7 @@ export const Header = ({ cartCount, search, setSearch }) => {
             className="h-[65px] object-cover"
           />
         </Link>
-        <div className="flex w-[92px] my-[5px] mb-[0] mt-2px px-9px justify-center items-center text-white rounded border-[1px] border-transparent hover:border-[1px] hover:border-white py-[5px] cursor-pointer">
+        <div className="hidden md:flex w-[92px] my-[5px] mb-[0] mt-2px px-9px justify-center items-center text-white rounded border-[1px] border-transparent hover:border-[1px] hover:border-white py-[5px] cursor-pointer">
           <i className="text-lg mt-2">
             <HiOutlineLocationMarker />
           </i>
@@ -39,8 +39,8 @@ export const Header = ({ cartCount, search, setSearch }) => {
         </div>
 
         {/* Search */}
-        <div className="h-[60px] flex flex-grow justify-center items-center">
-          <div className="rounded-md hover:border-2 hover:border-[#ffae45] flex flex-grow">
+        <div className="h-[60px] w-1/2 flex items-center">
+          <div className="w-full rounded-md hover:border-2 hover:border-[#ffae45] flex">
             <select
               name=""
               id=""
@@ -51,7 +51,7 @@ export const Header = ({ cartCount, search, setSearch }) => {
             <input
               name="Search"
               placeholder="Search"
-              className="outline-none flex-grow h-[40px] bg-white py-[8px] px-[6px]"
+              className="outline-none w-full h-[40px] bg-white py-[8px] px-[6px]"
               type="text"
               onChange={(evt) => handleSearch(evt)}
               value={search}
@@ -66,7 +66,7 @@ export const Header = ({ cartCount, search, setSearch }) => {
         </div>
 
         {/* language */}
-        <div className="flex items-center justify-center ml-5 mt-2 border-transparent border-[1px] hover:border-[1px] hover:border-white py-3 rounded cursor-pointer">
+        <div className="hidden md:flex items-center justify-center ml-5 mt-2 border-transparent border-[1px] hover:border-[1px] hover:border-white py-3 rounded cursor-pointer">
           <img
             className="h-5"
             src="https://flagsapi.com/US/flat/64.png"
@@ -77,7 +77,7 @@ export const Header = ({ cartCount, search, setSearch }) => {
             <IoMdArrowDropdown />
           </span>
         </div>
-        <div className="flex flex-col text-white border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer">
+        <div className="hidden sm:flex flex-col text-white border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer">
           <span className="text-xs">Hello, sign in</span>
           <span className="text-sm font-bold flex">
             Account & Lists
@@ -88,7 +88,7 @@ export const Header = ({ cartCount, search, setSearch }) => {
         </div>
 
         {/* orders */}
-        <div className="flex flex-col text-white border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer">
+        <div className="hidden md:flex flex-col text-white border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer">
           <span className="text-xs">Returns</span>
           <span className="text-sm font-bold">& Orders</span>
         </div>
@@ -108,7 +108,7 @@ export const Header = ({ cartCount, search, setSearch }) => {
       </nav>
 
       {/* navbar sprite */}
-      <div className="flex items-center w-full gap-0 h-[40px] bg-[#222f3d] text-white text-sm s">
+      <div className="flex items-center w-full gap-0 h-[40px] bg-[#222f3d] text-white text-sm overflow-x-auto">
         <div
           onClick={() => setIsActive((prev) => !prev)}
           className="flex ml-2 items-center justify-center border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer"
@@ -121,37 +121,37 @@ export const Header = ({ cartCount, search, setSearch }) => {
         <div className="flex gap-0 font-normal mb-[3px]">
           <Link
             href=""
-            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer"
+            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer w-max"
           >
             Today's Deals
           </Link>
           <Link
             href=""
-            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer"
+            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer w-max"
           >
             Prime Videos
           </Link>
           <Link
             href=""
-            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer"
+            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer w-max"
           >
             Registry
           </Link>
           <Link
             href=""
-            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer"
+            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer w-max"
           >
             Customer Service
           </Link>
           <Link
             href=""
-            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer"
+            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer w-max"
           >
             Gift Cards
           </Link>
           <Link
             href=""
-            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer"
+            className="border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer w-max"
           >
             Sell
           </Link>

@@ -18,7 +18,6 @@ function useProductData(category) {
   useEffect(() => {
     fetchProductData();
   }, []);
-  // console.log(data);
 
   return data;
 }

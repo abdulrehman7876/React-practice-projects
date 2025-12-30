@@ -2,12 +2,13 @@ import { useState } from "react";
 import { Card } from "../Cards/Card";
 import { CardFull } from "../Cards/CardFull";
 import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
-import { ProductCard } from "../Cards/ProductCard";
 import { Link, useOutletContext } from "react-router";
+import useAllProducts from "../../Hooks/useAllProducts";
 
 export const Section = () => {
   const { setCategory } = useOutletContext();
 
+  const data = useAllProducts("limit=24");
   const CardData = [
     {
       img1: "https://images-na.ssl-images-amazon.com/images/G/01/AMAZON_FASHION/2022/SITE_FLIPS/SPR_22/GW/DQC/DQC_APR_TBYB_W_BOTTOMS_2x._SY232_CB624172947_.jpg",
@@ -108,9 +109,7 @@ export const Section = () => {
       category: "kitchen-accessories",
     },
   ];
-  // fetch("https://fakestoreapi.com/products")
-  //   .then((res) => res.json())
-  //   .then((res) => console.log(res));
+
   const [index, setIndex] = useState(0);
   const URL = [
     "/bgimage.jpg",
@@ -123,11 +122,10 @@ export const Section = () => {
   return (
     <>
       <section className="w-full items-center bg-gray-200">
-        <div className="flex relative h-[600px] flex-grow w-full overflow-x-hidden 2xl:w-[1500px] ">
+        <div className="hidden sm:flex relative h-[600px] flex-grow w-full object-contain 2xl:w-[1500px] ">
           <button
             onClick={() => {
               setIndex((prev) => (prev === 0 ? URL.length - 1 : prev - 1));
-              console.log(index);
             }}
             className="absolute text-7xl text-white top-20 cursor-pointer z-1"
           >
@@ -136,13 +134,12 @@ export const Section = () => {
           <button
             onClick={() => {
               setIndex((prev) => (prev === URL.length - 1 ? 0 : prev + 1));
-              console.log(index);
             }}
             className="absolute text-7xl text-white top-20 left-[95%] cursor-pointer z-1"
           >
             <RiArrowRightSLine />
           </button>
-          <div className={`flex overflow-hidden flex-grow 2xl:w-[1500]`}>
+          <div className={`flex overflow-hidden flex-grow 2xl:w-[1500px]`}>
             {URL.map((imge, i) => (
               <img
                 key={i}
@@ -158,7 +155,7 @@ export const Section = () => {
         </div>
 
         {/* card  */}
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(290px,290px))] auto-rows-[420px] relative gap-4.5 w-full p-4.5 mt-[-23rem] xl:p-5 xl:gap-5 justify-center">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(290px,290px))] auto-rows-[420px] relative gap-4.5 w-full p-4.5 sm:mt-[-23rem] xl:p-5 xl:gap-5 justify-center">
           {CardData.map((obj, ind) => (
             <Link
               onClick={() => setCategory(obj.category)}
@@ -181,12 +178,33 @@ export const Section = () => {
             </Link>
           ))}
 
-          <CardFull
-            img1="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/Stores-Gaming/FinalGraphics/Fuji_Gaming_store_Dashboard_card_2x_EN._SY608_CB564799420_.jpg"
-            heading="Gaming"
-            shop="Shop"
-            userClass="h-full w-full"
-          />
+          <Link to="/productsection" onClick={() => setCategory("laptops")}>
+            <CardFull
+              img1="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/Stores-Gaming/FinalGraphics/Fuji_Gaming_store_Dashboard_card_2x_EN._SY608_CB564799420_.jpg"
+              heading="Gaming"
+              shop="Shop"
+              userClass="h-full w-full"
+            />
+          </Link>
+
+          {data ? (
+            data.products.map((obj, ind) => (
+              <Link
+                onClick={() => setCategory(obj.category)}
+                key={ind}
+                to="/productsection"
+              >
+                <CardFull
+                  img1={obj.thumbnail}
+                  heading={obj.title}
+                  shop="Shop"
+                  userClass=""
+                />
+              </Link>
+            ))
+          ) : (
+            <div>Loading</div>
+          )}
         </div>
       </section>
     </>
