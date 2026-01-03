@@ -1,21 +1,22 @@
 export default function Menu({ isContactOpen, setIsContactOpen }) {
   return (
     <section id="menu" className="h-full bg-black flex flex-col relative">
-      <div className="w-full h-50 sm:h-80 md:h-100 lg:h-140 bg-[url('/11205217.webp')] bg-cover -scale-y-100 absolute pointer-events-none"></div>
+      <div className="w-full h-50 sm:h-80 md:h-100 lg:h-140 bg-[url('/beans.webp')] bg-cover -scale-y-100 absolute pointer-events-none"></div>
       <div className="flex w-full flex-col gap-4 items-center mt-25">
-        <span className="text-5xl text-white">MENU</span>
-        <span className="text-3xl text-[#956943] mb-5">
+        <span className="text-3xl sm:text-5xl text-white">MENU</span>
+        <span className="text-xl sm:text-3xl text-[#956943] mb-5">
           Your Daily Dose of Comfort
         </span>
       </div>
-      <div className="sm:px-20 lg:px-45">
+      <div className="px-5 sm:px-20 lg:px-45">
         <div className="grid grid-cols-[repeat(auto-fill,minmax(190px,230px))] auto-rows-[350px] justify-center sm:justify-between lg:justify-between gap-15 mb-30">
           <div className="bg-[#956943] rounded-3xl flex flex-col items-center text-white">
             <div className="h-[170px] min-w-[190px] max-w-[230px] rounded-t-3xl flex justify-center overflow-hidden">
               <img
+                loading="lazy"
                 className="h-[170px] object-cover"
                 src="/expresso.webp"
-                alt=""
+                alt="expresso"
               />
             </div>
             <span className="text-white text-2xl mt-2">Espresso</span>
@@ -35,9 +36,10 @@ export default function Menu({ isContactOpen, setIsContactOpen }) {
           <div className="bg-[#956943] rounded-3xl flex flex-col items-center text-white">
             <div className="h-[170px] min-w-[190px] max-w-[230px] rounded-t-3xl flex justify-center overflow-hidden">
               <img
+                loading="lazy"
                 className="h-[170px] object-cover"
                 src="/cappuccino.webp"
-                alt=""
+                alt="cappuccino"
               />
             </div>
             <span className="text-white text-2xl mt-2">Cappuccino</span>
@@ -57,9 +59,10 @@ export default function Menu({ isContactOpen, setIsContactOpen }) {
           <div className="bg-[#956943] rounded-3xl flex flex-col items-center text-white">
             <div className="h-[170px] min-w-[190px] max-w-[230px] rounded-t-3xl flex justify-center overflow-hidden">
               <img
+                loading="lazy"
                 className="h-[170px] object-cover"
                 src="/latte.webp"
-                alt=""
+                alt="latte"
               />
             </div>
             <span className="text-white text-2xl mt-2">Latte</span>
@@ -79,9 +82,10 @@ export default function Menu({ isContactOpen, setIsContactOpen }) {
           <div className="bg-[#956943] rounded-3xl flex flex-col items-center text-white">
             <div className="h-[170px] min-w-[190px] max-w-[230px] rounded-t-3xl flex justify-center overflow-hidden">
               <img
+                loading="lazy"
                 className="h-[170px] object-cover"
                 src="/mocha.webp"
-                alt=""
+                alt="mocha"
               />
             </div>
             <span className="text-white text-2xl mt-2">Mocha</span>
@@ -101,9 +105,10 @@ export default function Menu({ isContactOpen, setIsContactOpen }) {
           <div className="bg-[#956943] rounded-3xl flex flex-col items-center text-white">
             <div className="h-[170px] min-w-[190px] max-w-[230px] rounded-t-3xl flex justify-center overflow-hidden">
               <img
+                loading="lazy"
                 className="h-[170px] object-cover"
-                src="/cold brew.webp"
-                alt=""
+                src="/coldBrew.webp"
+                alt="cold brew"
               />
             </div>
             <span className="text-white text-2xl mt-2">Cold Brew</span>
@@ -123,9 +128,10 @@ export default function Menu({ isContactOpen, setIsContactOpen }) {
           <div className="bg-[#956943] rounded-3xl flex flex-col items-center text-white">
             <div className="h-[170px] min-w-[190px] max-w-[230px] rounded-t-3xl flex justify-center overflow-hidden">
               <img
+                loading="lazy"
                 className="h-[170px] object-cover"
-                src="/hot chcolate.webp"
-                alt=""
+                src="/hotChocolate.webp"
+                alt="hot chocolate"
               />
             </div>
             <span className="text-white text-2xl mt-2">Hot Chocolate</span>
@@ -144,7 +150,7 @@ export default function Menu({ isContactOpen, setIsContactOpen }) {
           </div>
         </div>
       </div>
-      <div className="w-full h-50 sm:h-80 md:h-100 lg:h-140 bg-[url('/11205217.webp')] bg-cover absolute pointer-events-none bottom-0"></div>
+      <div className="w-full h-50 sm:h-80 md:h-100 lg:h-140 bg-[url('/beans.webp')] bg-cover absolute pointer-events-none bottom-0"></div>
     </section>
   );
 }

@@ -4,9 +4,14 @@ export default function Footer() {
       id="contact"
       className="w-full bg-[#956943] text-white flex flex-col items-center"
     >
-      <div className="w-full flex items-center justify-between px-10 sm:px-20 lg:px-45 pt-10 pb-7 gap-10">
+      <div className="w-full flex items-center justify-between px-5 sm:px-20 lg:px-45 pt-10 pb-7 gap-10">
         <div className="hidden lg:block mb-4">
-          <img className="h-40 object-cover" src="/Asset 1.png" alt="" />
+          <img
+            loading="lazy"
+            className="h-40 object-cover"
+            src="/Logo.png"
+            alt="Logo"
+          />
         </div>
         <div className="grid grid-rows-3 sm:grid-cols-3 sm:grid-rows-1 lg:grid-cols-[repeat(3,max-content)] gap-6 sm:gap-20 justify-center">
           <div className="gap-2 flex flex-col font-light">

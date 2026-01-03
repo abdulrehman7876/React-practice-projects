@@ -93,7 +93,7 @@ function Header({ isContactOpen, setIsContactOpen }) {
           <MdMenu />
         </div>
         <div className="ml-17 sm:ml-0 flex items-center">
-          <img className="w-25 bg-cover" src="Asset 1.png" alt="" />
+          <img className="w-25 bg-cover" src="/Logo.png" alt="Logo" />
         </div>
 
         <nav className="flex justify-end items-center sm:bg-[#956943] h-8 w-35 sm:w-140 md:w-156">

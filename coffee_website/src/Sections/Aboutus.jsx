@@ -4,19 +4,23 @@ export default function Aboutus() {
       className="h-full w-full bg-black flex flex-col relative"
       id="about"
     >
-      <div className="flex flex-col w-full items-center justify-center p-10 bg-black text-white px-20 sm:20 lg:px-45 mt-10 sm:mt-15">
+      <div className="flex flex-col w-full items-center justify-center py-10 bg-black text-white px-5 sm:20 lg:px-45 mt-10 sm:mt-15">
         <div className="flex w-full items-center justify-between">
           <div className="hidden md:flex md:h-60 md:w-70 lg:h-[300px] lg:w-[450px] overflow-hidden rounded-3xl">
-            <img className="h-full object-cover" src="/228.webp" alt="" />
+            <img
+              className="h-full object-cover"
+              src="/aboutImage.webp"
+              alt="coffee shop interior"
+            />
           </div>
-          <div className="flex flex-col w-85 md:w-67 lg:w-101 gap-1">
-            <span className="text-white text-4xl md:text-2xl font-bold">
+          <div className="flex flex-col md:w-67 lg:w-101 gap-1">
+            <span className="text-white text-2xl md:text-2xl lg:text-4xl font-bold">
               THE Cafe
             </span>
-            <span className="text-[#956943] text-3xl md:text-2xl font-bold">
+            <span className="text-[#956943] text-2xl md:text-2xl font-bold">
               Where Every Sip Begins
             </span>
-            <span className="text-gray-200 w-85 md:w-67 lg:w-100 text-justify text-xl md:text-lg">
+            <span className="text-gray-200 md:w-67 lg:w-100 text-justify text-xl md:text-lg">
               At The Cafe, we’re passionate about crafting the perfect cup. From
               selecting premium beans to brewing with care, we bring you rich
               flavors and irresistible aromas — one sip at a time.
