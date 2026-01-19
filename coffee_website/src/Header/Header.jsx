@@ -4,6 +4,7 @@ import { RxCross1 } from "react-icons/rx";
 
 function Header({ isContactOpen, setIsContactOpen }) {
   const [showHeader, setShowHeader] = useState(true);
+  const [blur, setBlur] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -14,9 +15,14 @@ function Header({ isContactOpen, setIsContactOpen }) {
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
         // scrolling down → hide
         setShowHeader(false);
+        // setBlur(true);
       } else {
         // scrolling up → show
         setShowHeader(true);
+        setBlur(false);
+        if (currentScrollY < 80) {
+          setBlur(true);
+        }
       }
 
       setLastScrollY(currentScrollY);
@@ -30,7 +36,7 @@ function Header({ isContactOpen, setIsContactOpen }) {
     <>
       <div
         className={
-          `h-full w-1/2 bg-[#956943] fixed sm:hidden z-7 flex flex-col p-10 pt-20 text-xl gap-8 text-white transition-all ease-in-out duration-200` +
+          `h-full w-1/2 bg-[#956943] fixed sm:hidden z-7 flex flex-col p-10 pt-20 text-xl gap-8 text-white transition-all ease-in-out duration-600` +
           (isOpen ? " left-0" : " -left-full")
         }
         onClick={() => setIsOpen(false)}
@@ -78,22 +84,23 @@ function Header({ isContactOpen, setIsContactOpen }) {
       </div>
       <header
         className={`
-        fixed top-0 w-full h-30 z-5
-        bg-transparent text-white p-2
+        fixed top-0 w-full h-30 z-5 bg-transparent
+        text-white p-2
         flex justify-between sm:justify-evenly items-center
         transition-transform duration-300 ease-in-out
         ${showHeader ? "translate-y-0" : "-translate-y-full"}
+         ${blur ? "backdrop-blur-none" : "backdrop-blur-lg"}
       `}
         onMouseEnter={() => setShowHeader(true)} // hover on top
       >
         <div
           onClick={() => setIsOpen(!isOpen)}
-          className="flex sm:hidden text-5xl"
+          className="flex sm:hidden text-4xl"
         >
           <MdMenu />
         </div>
-        <div className="ml-17 sm:ml-0 flex items-center">
-          <img className="w-25 bg-cover" src="/Logo.png" alt="Logo" />
+        <div className="ml-20 sm:ml-0 flex items-center">
+          <img className="w-20 object-cover" src="/Logo.png" alt="Logo" />
         </div>
 
         <nav className="flex justify-end items-center sm:bg-[#956943] h-8 w-35 sm:w-140 md:w-156">
@@ -112,7 +119,7 @@ function Header({ isContactOpen, setIsContactOpen }) {
 
           <button
             onClick={() => setIsContactOpen(!isContactOpen)}
-            className="w-27 sm:w-35 h-12 rounded-3xl sm:rounded-none bg-white text-black text-md sm:h-full hover:bg-black cursor-pointer hover:text-white hover:border-b-white hover:border-b-2"
+            className="w-23 sm:w-35 h-12 rounded-3xl sm:rounded-none bg-white text-black text-xs sm:text-sm sm:h-full hover:bg-black cursor-pointer hover:text-white hover:border-b-white hover:border-b-2"
           >
             ORDER NOW
           </button>

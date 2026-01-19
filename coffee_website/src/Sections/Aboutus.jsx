@@ -5,7 +5,7 @@ export default function Aboutus() {
       id="about"
     >
       <div className="flex flex-col w-full items-center justify-center py-10 bg-black text-white px-5 sm:20 lg:px-45 mt-10 sm:mt-15">
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-center gap-10">
           <div className="hidden md:flex md:h-60 md:w-70 lg:h-[300px] lg:w-[450px] overflow-hidden rounded-3xl">
             <img
               className="h-full object-cover"
@@ -20,7 +20,7 @@ export default function Aboutus() {
             <span className="text-[#956943] text-2xl md:text-2xl font-bold">
               Where Every Sip Begins
             </span>
-            <span className="text-gray-200 md:w-67 lg:w-100 text-justify text-xl md:text-lg">
+            <span className="font-body text-gray-200 md:w-67 lg:w-100 text-justify text-xl md:text-lg">
               At The Cafe, we’re passionate about crafting the perfect cup. From
               selecting premium beans to brewing with care, we bring you rich
               flavors and irresistible aromas — one sip at a time.
@@ -29,7 +29,7 @@ export default function Aboutus() {
         </div>
         <div className="flex flex-col items-center justify-center gap-2 mt-15 text-justify">
           <p>
-            <span className="text-white text-xl">
+            <span className="text-white text-lg">
               We are a passionate team of coffee lovers dedicated to bringing
               you the finest quality coffee experiences. Our journey began with
               a simple idea: to create a space where every cup tells a story and
@@ -41,7 +41,7 @@ export default function Aboutus() {
             </span>
           </p>
           <p>
-            <span className="text-white text-xl">
+            <span className="text-white text-lg">
               Our baristas are artisans, trained to craft each drink with
               precision and care. From the rich aroma of a freshly brewed
               espresso to the creamy indulgence of a latte, we take pride in
@@ -53,7 +53,7 @@ export default function Aboutus() {
             </span>
           </p>
           <p>
-            <span className="text-white">
+            <span className="text-white text-lg">
               Thank you for being part of our story. We invite you to explore
               our menu, savor our brews, and experience the warmth and passion
               that defines who we are.

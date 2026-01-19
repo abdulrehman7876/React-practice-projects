@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="hidden lg:block mb-4">
           <img
             loading="lazy"
-            className="h-40 object-cover"
+            className="h-30 object-cover"
             src="/Logo.png"
             alt="Logo"
           />
