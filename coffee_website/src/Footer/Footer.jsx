@@ -13,11 +13,11 @@ export default function Footer() {
             alt="Logo"
           />
         </div>
-        <div className="grid grid-rows-3 sm:grid-cols-3 sm:grid-rows-1 lg:grid-cols-[repeat(3,max-content)] gap-6 sm:gap-20 justify-center">
+        <div className="grid grid-rows-[repeat(3,max-content)] gap-6 sm:grid-cols-3 sm:grid-rows-1 lg:grid-cols-[repeat(3,max-content)]  sm:gap-20 justify-center">
           <div className="gap-2 flex flex-col font-light">
             <h3 className="font-semibold mb-2 text-2xl">Contact Us</h3>
             <p>Email: info@thecafe.com</p>
-            <p>Phone: +92 456-7890</p>
+            <p>Phone: +92 302617692</p>
             <p>Location: Near University || ETC Town</p>
           </div>
           <div className="gap-2 flex flex-col font-light">

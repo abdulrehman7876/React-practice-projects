@@ -36,7 +36,7 @@ function Header({ isContactOpen, setIsContactOpen }) {
     <>
       <div
         className={
-          `h-full w-1/2 bg-[#956943] fixed sm:hidden z-7 flex flex-col p-10 pt-20 text-xl gap-8 text-white transition-all ease-in-out duration-600` +
+          `h-full w-2/3 bg-[#956943] fixed sm:hidden z-7 flex flex-col p-10 pt-20 text-lg gap-8 text-white transition-all ease-in-out duration-600` +
           (isOpen ? " left-0" : " -left-full")
         }
         onClick={() => setIsOpen(false)}
@@ -99,7 +99,7 @@ function Header({ isContactOpen, setIsContactOpen }) {
         >
           <MdMenu />
         </div>
-        <div className="ml-20 sm:ml-0 flex items-center">
+        <div className="ml-21 sm:ml-0 flex items-center">
           <img className="w-20 object-cover" src="/Logo.png" alt="Logo" />
         </div>
 
@@ -119,7 +119,7 @@ function Header({ isContactOpen, setIsContactOpen }) {
 
           <button
             onClick={() => setIsContactOpen(!isContactOpen)}
-            className="w-23 sm:w-35 h-12 rounded-3xl sm:rounded-none bg-white text-black text-xs sm:text-sm sm:h-full hover:bg-black cursor-pointer hover:text-white hover:border-b-white hover:border-b-2"
+            className="w-23 sm:w-35 h-12 rounded-3xl sm:rounded-none bg-white text-black text-xs sm:text-sm sm:h-full hover:bg-black cursor-pointer hover:text-white sm:hover:border-b-white sm:hover:border-b-2"
           >
             ORDER NOW
           </button>
