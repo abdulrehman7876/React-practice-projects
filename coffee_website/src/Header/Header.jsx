@@ -84,46 +84,55 @@ function Header({ isContactOpen, setIsContactOpen }) {
       </div>
       <header
         className={`
-        fixed top-0 w-full h-30 z-5 bg-transparent
-        text-white p-2
-        flex justify-between sm:justify-evenly items-center
-        transition-transform duration-300 ease-in-out
-        ${showHeader ? "translate-y-0" : "-translate-y-full"}
-         ${blur ? "backdrop-blur-none" : "backdrop-blur-lg"}
-      `}
-        onMouseEnter={() => setShowHeader(true)} // hover on top
+    fixed top-0 left-0 w-full h-30 z-5
+    bg-transparent text-white p-2
+    transition-transform duration-300 ease-in-out
+    ${showHeader ? "translate-y-0" : "-translate-y-full"}
+    ${blur ? "backdrop-blur-none" : "backdrop-blur-lg"}
+  `}
       >
         <div
-          onClick={() => setIsOpen(!isOpen)}
-          className="flex sm:hidden text-4xl"
+          className="
+      mx-auto w-full
+      max-w-[1536px]
+      flex justify-between sm:justify-evenly items-center
+    "
         >
-          <MdMenu />
-        </div>
-        <div className="ml-21 sm:ml-0 flex items-center">
-          <img className="w-20 object-cover" src="/Logo.png" alt="Logo" />
-        </div>
-
-        <nav className="flex justify-end items-center sm:bg-[#956943] h-8 w-35 sm:w-140 md:w-156">
-          <ul className="hidden sm:flex justify-evenly w-156.5">
-            {["HOME", "MENU", "ABOUT", "CONTACT"].map((item) => (
-              <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  className="hover:border-b-white pb-1 hover:border-b-2"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <button
-            onClick={() => setIsContactOpen(!isContactOpen)}
-            className="w-23 sm:w-35 h-12 rounded-3xl sm:rounded-none bg-white text-black text-xs sm:text-sm sm:h-full hover:bg-black cursor-pointer hover:text-white sm:hover:border-b-white sm:hover:border-b-2"
+          <div
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex sm:hidden text-4xl"
           >
-            ORDER NOW
-          </button>
-        </nav>
+            <MdMenu />
+          </div>
+          <div className="ml-21 sm:ml-0 flex items-center">
+            <img className="w-20 object-cover" src="/Logo.png" alt="Logo" />
+          </div>
+
+          <nav
+            role="navigation"
+            className="flex justify-end items-center sm:bg-[#956943] h-8 w-35 sm:w-140 md:w-156"
+          >
+            <ul className="hidden sm:flex justify-evenly w-156.5">
+              {["HOME", "MENU", "ABOUT", "CONTACT"].map((item) => (
+                <li key={item}>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="hover:border-b-white pb-1 hover:border-b-2"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <button
+              onClick={() => setIsContactOpen(!isContactOpen)}
+              className="w-23 sm:w-35 h-12 rounded-3xl sm:rounded-none bg-white text-black text-xs sm:text-sm sm:h-full hover:bg-black cursor-pointer hover:text-white sm:hover:border-b-white sm:hover:border-b-2"
+            >
+              ORDER NOW
+            </button>
+          </nav>
+        </div>
       </header>
     </>
   );

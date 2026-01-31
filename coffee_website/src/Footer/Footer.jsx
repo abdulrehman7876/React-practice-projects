@@ -1,6 +1,7 @@
 export default function Footer() {
   return (
     <footer
+      role="contentinfo"
       id="contact"
       className="w-full bg-[#956943] text-white flex flex-col items-center"
     >

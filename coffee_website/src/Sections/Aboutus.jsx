@@ -1,6 +1,7 @@
 export default function Aboutus() {
   return (
     <section
+      role="main"
       className="h-full w-full bg-black flex flex-col relative"
       id="about"
     >
