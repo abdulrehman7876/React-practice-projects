@@ -8,3 +8,7 @@ html {
 p {
   font-family: "Inter", sans-serif;
 }
+
+button {
+  transition: all ease 0.5s;
+}

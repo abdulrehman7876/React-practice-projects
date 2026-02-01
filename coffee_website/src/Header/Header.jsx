@@ -117,7 +117,7 @@ function Header({ isContactOpen, setIsContactOpen }) {
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
-                    className="hover:border-b-white pb-1 hover:border-b-2"
+                    className="hover:border-b-white pb-1 hover:border-b-2 transition-all duration-100 ease-in"
                   >
                     {item}
                   </a>
@@ -127,7 +127,7 @@ function Header({ isContactOpen, setIsContactOpen }) {
 
             <button
               onClick={() => setIsContactOpen(!isContactOpen)}
-              className="w-23 sm:w-35 h-12 rounded-3xl sm:rounded-none bg-white text-black text-xs sm:text-sm sm:h-full hover:bg-black cursor-pointer hover:text-white sm:hover:border-b-white sm:hover:border-b-2"
+              className="w-23 sm:w-35 h-12 rounded-3xl sm:rounded-none bg-white text-black text-xs sm:text-sm sm:h-full hover:bg-black cursor-pointer hover:text-white sm:hover:border-b-white sm:hover:border-b-2 transition-all duration-100 ease-in"
             >
               ORDER NOW
             </button>
