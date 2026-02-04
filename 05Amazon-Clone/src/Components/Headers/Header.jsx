@@ -4,10 +4,11 @@ import { GrMenu } from "react-icons/gr";
 import { Hmenu } from "../H-menu/Hmenu";
 import { useState } from "react";
 import { Link } from "react-router";
+import useData from "../../contexts/data";
 
-export const Header = ({ cartCount, search, setSearch }) => {
+export const Header = () => {
   const [isActive, setIsActive] = useState(false);
-
+  const { cartCount, search, setSearch } = useData();
   const handleSearch = (evt) => {
     setSearch(evt.target.value);
   };

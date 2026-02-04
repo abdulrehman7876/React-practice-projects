@@ -1,7 +1,8 @@
-import { useOutletContext } from "react-router";
+// import { useOutletContext } from "react-router";
 import { IoIosArrowDown, IoIosStar, IoIosStarHalf } from "react-icons/io";
-import { useEffect, useRef, useState } from "react";
-import useItemProduct from "../../Hooks/useItemProduct";
+import { useEffect, useMemo, useRef, useState } from "react";
+// import useItemProduct from "../../Hooks/useItemProduct";
+import useData from "../../contexts/data";
 
 export const ItemsSection = () => {
   const {
@@ -11,14 +12,23 @@ export const ItemsSection = () => {
     idCartCount,
     setIdCartCount,
     itemId,
-  } = useOutletContext();
+    allData,
+  } = useData();
 
-  const data = useItemProduct(itemId);
+  // const data = useItemProduct(itemId);
+  const data = useMemo(() => {
+    if (!allData?.products) return null;
+
+    return allData.products.find((cat) => Number(cat.id) === Number(itemId));
+  }, [allData, itemId]);
+  // console.log(mydata);
   const imgRef = useRef(null);
   const [img, setImg] = useState();
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (data) setImg(data.images[0]);
+    if (data) {
+      setImg(data.images?.[0]);
+    }
   }, [data]);
 
   const handleMouseMove = (e) => {
@@ -34,8 +44,9 @@ export const ItemsSection = () => {
     imgRef.current.style.transformOrigin = "center";
     imgRef.current.style.transform = "scale(1)";
   };
-  if (!data) return <div>Loading</div>;
-  else {
+  if (!data) {
+    return <div className="text-3xl">Loading...</div>;
+  } else {
     const price = data.price.toString().split(".");
     return (
       <>
@@ -140,7 +151,7 @@ export const ItemsSection = () => {
               <button
                 onClick={() => {
                   setId((prev) =>
-                    prev.includes(itemId) ? prev : [...prev, itemId]
+                    prev.includes(itemId) ? prev : [...prev, itemId],
                   );
                   setCartCount(cartCount + 1);
                   setIdCartCount((prev) => ({

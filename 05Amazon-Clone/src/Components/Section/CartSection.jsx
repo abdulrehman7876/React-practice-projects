@@ -1,17 +1,19 @@
-import { useOutletContext } from "react-router";
-import useProductId from "../../Hooks/useProductId";
+// import useProductId from "../../Hooks/useProductId";
 import { CartCard } from "../Cards/CartCard";
 import { useEffect, useState } from "react";
+import useData from "../../contexts/data";
 
 export const CartSection = () => {
-  const { id, setId, cartCount, setCartCount, idCartCount, setIdCartCount } =
-    useOutletContext();
-  const idData = useProductId(id);
+  const { id, cartCount, idCartCount, setIdCartCount, allData } = useData();
+  // const idData = useProductId(id);
+  const idData = allData?.products?.filter((cat) => id.includes(cat.id)) || [];
 
   const [totalPrice, setTotalPrice] = useState(0);
   let tempPrice = 0;
 
   useEffect(() => {
+    window.scroll(0, 0);
+
     const keys = Object.keys(idCartCount);
     setIdCartCount({});
     keys.filter((elm) => {
@@ -55,12 +57,6 @@ export const CartSection = () => {
                       price={elm.price}
                       rating={elm.rating}
                       elmId={elm.id}
-                      id={id}
-                      setId={setId}
-                      cartCount={cartCount}
-                      setCartCount={setCartCount}
-                      idCartCount={idCartCount}
-                      setIdCartCount={setIdCartCount}
                       totalPrice={totalPrice}
                       setTotalPrice={setTotalPrice}
                     />

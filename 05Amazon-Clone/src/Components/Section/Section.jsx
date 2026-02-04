@@ -1,14 +1,33 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Card } from "../Cards/Card";
 import { CardFull } from "../Cards/CardFull";
 import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
-import { Link, useOutletContext } from "react-router";
-import useAllProducts from "../../Hooks/useAllProducts";
+import { Link } from "react-router";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+// import useAllProducts from "../../Hooks/useAllProducts";
+import useData from "../../contexts/data";
+import Slider from "react-slick";
 
 export const Section = () => {
-  const { setCategory } = useOutletContext();
+  const { setCategory, allData } = useData();
 
-  const data = useAllProducts("limit=24");
+  // const data = useAllProducts("limit=24");
+  const data = allData ? allData.products.filter((cat) => cat.id < 25) : [];
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
   const CardData = [
     {
       img1: "https://images-na.ssl-images-amazon.com/images/G/01/AMAZON_FASHION/2022/SITE_FLIPS/SPR_22/GW/DQC/DQC_APR_TBYB_W_BOTTOMS_2x._SY232_CB624172947_.jpg",
@@ -110,7 +129,7 @@ export const Section = () => {
     },
   ];
 
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
   const URL = [
     "/bgimage.jpg",
     "https://m.media-amazon.com/images/I/71qaeC7FpjL._SX3000_.jpg",
@@ -118,37 +137,36 @@ export const Section = () => {
     "https://m.media-amazon.com/images/I/81hIlE5xocL._SX3000_.jpg",
     "https://m.media-amazon.com/images/I/61Yx5-N155L._SX3000_.jpg",
   ];
+  const sliderRef = useRef(null);
 
   return (
     <>
       <section className="w-full items-center bg-gray-200">
-        <div className="hidden sm:flex relative h-[600px] flex-grow w-full object-contain 2xl:w-[1500px] ">
+        <div className="hidden sm:flex relative h-[600px] w-full 2xl:w-[1500px]">
           <button
-            onClick={() => {
-              setIndex((prev) => (prev === 0 ? URL.length - 1 : prev - 1));
-            }}
+            onClick={() => sliderRef.current.slickPrev()}
             className="absolute text-7xl text-white top-20 cursor-pointer z-1"
           >
             <RiArrowLeftSLine />
           </button>
           <button
-            onClick={() => {
-              setIndex((prev) => (prev === URL.length - 1 ? 0 : prev + 1));
-            }}
+            onClick={() => sliderRef.current.slickNext()}
             className="absolute text-7xl text-white top-20 left-[95%] cursor-pointer z-1"
           >
             <RiArrowRightSLine />
           </button>
-          <div className={`flex overflow-hidden flex-grow 2xl:w-[1500px]`}>
-            {URL.map((imge, i) => (
-              <img
-                key={i}
-                src={`${imge}`}
-                alt=""
-                className="h-[600px] w-[1500px] object-cover transition-all duration-300 linear"
-                style={{ transform: `translateX(-${index * 100}%)` }}
-              />
-            ))}
+          <div className="relative w-full">
+            <Slider ref={sliderRef} {...settings}>
+              {URL.map((imge, i) => (
+                <img
+                  key={i}
+                  src={`${imge}`}
+                  alt=""
+                  className="h-[600px] w-[1500px] object-cover"
+                  // style={{ transform: `translateX(-${index * 100}%)` }}
+                />
+              ))}
+            </Slider>
           </div>
 
           <div className="h-[600px] absolute z-0 inset-0 bg-[linear-gradient(to_bottom,rgba(229,231,235,0),rgba(229,231,235,0),rgba(229,231,235,1))]"></div>
@@ -188,7 +206,7 @@ export const Section = () => {
           </Link>
 
           {data ? (
-            data.products.map((obj, ind) => (
+            data.map((obj, ind) => (
               <Link
                 onClick={() => setCategory(obj.category)}
                 key={ind}

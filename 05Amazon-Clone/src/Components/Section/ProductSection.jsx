@@ -1,25 +1,17 @@
-import { Link, useOutletContext } from "react-router";
 import { ProductCard } from "../Cards/ProductCard";
-import useProductData from "../../Hooks/useProductData";
+// import useProductData from "../../Hooks/useProductData";
 import { useEffect, useState } from "react";
 import { MdOutlineStarOutline, MdOutlineStarPurple500 } from "react-icons/md";
+import useData from "../../contexts/data";
 
 export const ProductSection = () => {
-  const {
-    cartCount,
-    setCartCount,
-    range,
-    setRange,
-    rangeLeft,
-    setLeftRange,
-    category,
-    id,
-    setId,
-    idCartCount,
-    setIdCartCount,
-    setItemId,
-  } = useOutletContext();
-  const data = useProductData(category);
+  const { range, setRange, rangeLeft, setLeftRange, category, allData } =
+    useData();
+  // const data = useProductData(category);
+  const data = allData
+    ? allData.products.filter((cat) => cat.category === category)
+    : [];
+
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -47,7 +39,7 @@ export const ProductSection = () => {
             <input
               onChange={(e) =>
                 setTempRange(
-                  Math.max(Number(e.target.value), tempLeftRange + 100)
+                  Math.max(Number(e.target.value), tempLeftRange + 100),
                 )
               }
               min="48"
@@ -74,7 +66,7 @@ export const ProductSection = () => {
             <input
               onChange={(e) =>
                 setTempLeftRange(
-                  Math.min(Number(e.target.value), tempRange - 100)
+                  Math.min(Number(e.target.value), tempRange - 100),
                 )
               }
               aria-valuemin={tempLeftRange}
@@ -159,35 +151,24 @@ export const ProductSection = () => {
             </span>
           </div>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(241px,241px))] auto-rows-[500px] justify-center gap-[7px]">
-            {data ? (
-              data.products.map((elm) => {
-                if (
-                  Number(elm.price) >= rangeLeft &&
-                  Number(elm.price) <= range
-                ) {
-                  return (
-                    <ProductCard
-                      key={elm.id}
-                      img={elm.thumbnail || ""}
-                      title={elm.title}
-                      description={elm.description}
-                      price={elm.price}
-                      rating={elm.rating}
-                      cartCount={cartCount}
-                      setCartCount={setCartCount}
-                      elmId={elm.id}
-                      id={id}
-                      setId={setId}
-                      idCartCount={idCartCount}
-                      setIdCartCount={setIdCartCount}
-                      setItemId={setItemId}
-                    />
-                  );
-                }
-              })
-            ) : (
-              <div className="text-3xl">Loading...</div>
-            )}
+            {data.map((elm) => {
+              if (
+                Number(elm.price) >= rangeLeft &&
+                Number(elm.price) <= range
+              ) {
+                return (
+                  <ProductCard
+                    key={elm.id}
+                    img={elm.thumbnail || ""}
+                    title={elm.title}
+                    description={elm.description}
+                    price={elm.price}
+                    rating={elm.rating}
+                    elmId={elm.id}
+                  />
+                );
+              }
+            })}
           </div>
         </div>
       </section>

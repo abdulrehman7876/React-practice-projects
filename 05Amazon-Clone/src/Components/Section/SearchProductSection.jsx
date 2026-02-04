@@ -1,25 +1,15 @@
-import { useOutletContext } from "react-router";
+// import { useOutletContext } from "react-router";
 import { ProductCard } from "../Cards/ProductCard";
 import { useEffect, useState } from "react";
 import { MdOutlineStarOutline, MdOutlineStarPurple500 } from "react-icons/md";
-import useAllProducts from "../../Hooks/useAllProducts";
+// import useAllProducts from "../../Hooks/useAllProducts";
+import useData from "../../contexts/data";
 
 export const SearchProductSection = () => {
-  const {
-    cartCount,
-    setCartCount,
-    range,
-    setRange,
-    rangeLeft,
-    setLeftRange,
-    id,
-    setId,
-    idCartCount,
-    setIdCartCount,
-    search,
-    setItemId,
-  } = useOutletContext();
-  const data = useAllProducts("limit=0");
+  const { range, setRange, rangeLeft, setLeftRange, search, allData } =
+    useData();
+  const data = allData;
+  // const data = useAllProducts("limit=0");
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -47,7 +37,7 @@ export const SearchProductSection = () => {
             <input
               onChange={(e) =>
                 setTempRange(
-                  Math.max(Number(e.target.value), tempLeftRange + 100)
+                  Math.max(Number(e.target.value), tempLeftRange + 100),
                 )
               }
               min="48"
@@ -74,7 +64,7 @@ export const SearchProductSection = () => {
             <input
               onChange={(e) =>
                 setTempLeftRange(
-                  Math.min(Number(e.target.value), tempRange - 100)
+                  Math.min(Number(e.target.value), tempRange - 100),
                 )
               }
               aria-valuemin={tempLeftRange}
@@ -175,14 +165,7 @@ export const SearchProductSection = () => {
                         title={elm.title}
                         price={elm.price}
                         rating={elm.rating}
-                        cartCount={cartCount}
-                        setCartCount={setCartCount}
                         elmId={elm.id}
-                        id={id}
-                        setId={setId}
-                        idCartCount={idCartCount}
-                        setIdCartCount={setIdCartCount}
-                        setItemId={setItemId}
                       />
                     );
                   }

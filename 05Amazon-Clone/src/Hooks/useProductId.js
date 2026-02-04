@@ -10,7 +10,7 @@ function useItemProduct(id) {
           id.map(async (elm) => {
             const res = await fetch(`https://dummyjson.com/products/${elm}`);
             return res.json();
-          })
+          }),
         );
         setCategoryData(results);
       } catch (error) {
