@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { MdOutlineStarOutline, MdOutlineStarPurple500 } from "react-icons/md";
 // import useAllProducts from "../../Hooks/useAllProducts";
 import useData from "../../contexts/data";
+import { MainScreenLoader } from "../Loader/MainScreenLoader";
 
 export const SearchProductSection = () => {
   const { range, setRange, rangeLeft, setLeftRange, search, allData } =
@@ -171,7 +172,10 @@ export const SearchProductSection = () => {
                   }
                 })
               ) : (
-                <div className="text-3xl">Loading...</div>
+                <div className="text-3xl flex flex-col justify-center items-center place-items-center w-full p-20">
+                  <MainScreenLoader />
+                  Loading...
+                </div>
               )
             ) : (
               <div className="text-3xl font-semibold">Search is Empty</div>

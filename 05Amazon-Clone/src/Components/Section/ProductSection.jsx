@@ -3,6 +3,7 @@ import { ProductCard } from "../Cards/ProductCard";
 import { useEffect, useState } from "react";
 import { MdOutlineStarOutline, MdOutlineStarPurple500 } from "react-icons/md";
 import useData from "../../contexts/data";
+import { MainScreenLoader } from "../Loader/MainScreenLoader";
 
 export const ProductSection = () => {
   const { range, setRange, rangeLeft, setLeftRange, category, allData } =
@@ -150,26 +151,33 @@ export const ProductSection = () => {
               details may vary based on product size and color.
             </span>
           </div>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(241px,241px))] auto-rows-[500px] justify-center gap-[7px]">
-            {data.map((elm) => {
-              if (
-                Number(elm.price) >= rangeLeft &&
-                Number(elm.price) <= range
-              ) {
-                return (
-                  <ProductCard
-                    key={elm.id}
-                    img={elm.thumbnail || ""}
-                    title={elm.title}
-                    description={elm.description}
-                    price={elm.price}
-                    rating={elm.rating}
-                    elmId={elm.id}
-                  />
-                );
-              }
-            })}
-          </div>
+          {data.length > 0 ? (
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(241px,241px))] auto-rows-[500px] justify-center gap-[7px]">
+              {data.map((elm) => {
+                if (
+                  Number(elm.price) >= rangeLeft &&
+                  Number(elm.price) <= range
+                ) {
+                  return (
+                    <ProductCard
+                      key={elm.id}
+                      img={elm.thumbnail || ""}
+                      title={elm.title}
+                      description={elm.description}
+                      price={elm.price}
+                      rating={elm.rating}
+                      elmId={elm.id}
+                    />
+                  );
+                }
+              })}
+            </div>
+          ) : (
+            <div className="text-3xl flex flex-col justify-center items-center place-items-center w-full p-20">
+              <MainScreenLoader />
+              Loading...
+            </div>
+          )}
         </div>
       </section>
     </>

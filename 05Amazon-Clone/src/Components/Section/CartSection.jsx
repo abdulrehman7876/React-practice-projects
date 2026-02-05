@@ -2,6 +2,7 @@
 import { CartCard } from "../Cards/CartCard";
 import { useEffect, useState } from "react";
 import useData from "../../contexts/data";
+import { MainScreenLoader } from "../Loader/MainScreenLoader";
 
 export const CartSection = () => {
   const { id, cartCount, idCartCount, setIdCartCount, allData } = useData();
@@ -63,7 +64,10 @@ export const CartSection = () => {
                   );
                 })
               ) : (
-                <div>loading...</div>
+                <div className="text-3xl flex flex-col justify-center items-center container mx-auto">
+                  <MainScreenLoader />
+                  Loading...
+                </div>
               )}
             </div>
           </div>

@@ -109,7 +109,7 @@ export const Header = () => {
       </nav>
 
       {/* navbar sprite */}
-      <div className="flex items-center w-full gap-0 h-[40px] bg-[#222f3d] text-white text-sm overflow-x-auto">
+      <div className="flex items-center w-full gap-0 h-[40px] bg-[#222f3d] text-white text-sm overflow-x-auto myScroll">
         <div
           onClick={() => setIsActive((prev) => !prev)}
           className="flex ml-2 items-center justify-center border-transparent border-[1px] hover:border-[1px] hover:border-white p-2 rounded cursor-pointer"

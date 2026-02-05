@@ -3,6 +3,8 @@ import { IoIosArrowDown, IoIosStar, IoIosStarHalf } from "react-icons/io";
 import { useEffect, useMemo, useRef, useState } from "react";
 // import useItemProduct from "../../Hooks/useItemProduct";
 import useData from "../../contexts/data";
+import { Loader } from "../Loader/Loader";
+import { MainScreenLoader } from "../Loader/MainScreenLoader";
 
 export const ItemsSection = () => {
   const {
@@ -21,7 +23,25 @@ export const ItemsSection = () => {
 
     return allData.products.find((cat) => Number(cat.id) === Number(itemId));
   }, [allData, itemId]);
-  // console.log(mydata);
+
+  const [loading, setLoading] = useState(false);
+
+  const handleAddToCart = () => {
+    if (loading) return;
+
+    setLoading(true);
+
+    setTimeout(() => {
+      setId((prev) => (prev.includes(itemId) ? prev : [...prev, itemId]));
+      setCartCount(cartCount + 1);
+      setIdCartCount((prev) => ({
+        ...prev,
+        [itemId]: idCartCount[itemId] + 1,
+      }));
+      setLoading(false);
+    }, 1000);
+  };
+
   const imgRef = useRef(null);
   const [img, setImg] = useState();
   useEffect(() => {
@@ -45,7 +65,12 @@ export const ItemsSection = () => {
     imgRef.current.style.transform = "scale(1)";
   };
   if (!data) {
-    return <div className="text-3xl">Loading...</div>;
+    return (
+      <div className="text-3xl flex flex-col justify-center items-center container mx-auto w-full p-50">
+        <MainScreenLoader />
+        Loading...
+      </div>
+    );
   } else {
     const price = data.price.toString().split(".");
     return (
@@ -149,19 +174,12 @@ export const ItemsSection = () => {
 
             <div className=" text-black text-sm">
               <button
-                onClick={() => {
-                  setId((prev) =>
-                    prev.includes(itemId) ? prev : [...prev, itemId],
-                  );
-                  setCartCount(cartCount + 1);
-                  setIdCartCount((prev) => ({
-                    ...prev,
-                    [itemId]: idCartCount[itemId] + 1,
-                  }));
-                }}
-                className="p-[5px_11px] bg-amber-300 rounded-2xl pb-2 cursor-pointer w-full"
+                onClick={handleAddToCart}
+                disabled={loading}
+                className={`p-[5px_11px] bg-amber-300 rounded-2xl pb-2 cursor-pointer w-full place-items-center
+                ${loading ? "bg-gray-300 cursor-not-allowed" : "bg-amber-300"} `}
               >
-                Add to Cart
+                {loading ? <Loader /> : "Add to Cart"}
               </button>
             </div>
             <div className=" text-black text-sm">

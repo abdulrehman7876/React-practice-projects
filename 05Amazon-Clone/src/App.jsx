@@ -24,7 +24,7 @@ function App() {
   );
 
   const [itemId, setItemId] = useState(
-    () => localStorage.getItem("itemId") || "90",
+    () => JSON.parse(localStorage.getItem("idItem")) || "90",
   );
 
   // search
