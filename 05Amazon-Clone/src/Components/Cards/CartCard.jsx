@@ -70,6 +70,10 @@ export const CartCard = ({
       );
 
       setCartCount((prev) => prev - idCartCount[elmId]);
+      setIdCartCount((prev) => ({
+        ...prev,
+        [elmId]: 0,
+      }));
     }
   };
 
