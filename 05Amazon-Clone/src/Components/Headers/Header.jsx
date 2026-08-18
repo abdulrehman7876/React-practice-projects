@@ -3,7 +3,7 @@ import { IoIosSearch, IoMdArrowDropdown } from "react-icons/io";
 import { GrMenu } from "react-icons/gr";
 import { Hmenu } from "../H-menu/Hmenu";
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import useData from "../../contexts/data";
 
 export const Header = () => {
@@ -12,6 +12,7 @@ export const Header = () => {
   const handleSearch = (evt) => {
     setSearch(evt.target.value);
   };
+  const navigate = useNavigate();
 
   return (
     <>
@@ -56,6 +57,11 @@ export const Header = () => {
               type="text"
               onChange={(evt) => handleSearch(evt)}
               value={search}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  navigate("/searched");
+                }
+              }}
             />
             <Link
               to="/searched"

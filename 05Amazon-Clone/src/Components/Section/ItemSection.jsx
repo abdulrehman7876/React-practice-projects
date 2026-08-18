@@ -129,7 +129,7 @@ export const ItemsSection = () => {
             </div>
             <div className="text-3xl relative">
               <span className="absolute text-sm top-1 font-semibold">$</span>
-              <span className="ml-2">{price[0]}</span>
+              <span className="ml-2">{Number(price[0]).toLocaleString()}</span>
               <span className="absolute text-sm top-1 font-semibold">
                 {price[1]}
               </span>

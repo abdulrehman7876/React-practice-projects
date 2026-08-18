@@ -11,6 +11,7 @@ function App() {
   const [cartCount, setCartCount] = useState(
     () => JSON.parse(localStorage.getItem("cartCount")) || 0,
   );
+
   const [range, setRange] = useState(48000);
   const [rangeLeft, setLeftRange] = useState(1);
   const [id, setId] = useState(
@@ -36,7 +37,9 @@ function App() {
   }, [cartCount]);
 
   useEffect(() => {
-    localStorage.setItem("category", category);
+    if (category) {
+      localStorage.setItem("category", category);
+    }
   }, [category]);
 
   useEffect(() => {
@@ -48,7 +51,9 @@ function App() {
   }, [idCartCount]);
 
   useEffect(() => {
-    localStorage.setItem("idItem", JSON.stringify(itemId));
+    if (itemId) {
+      localStorage.setItem("idItem", JSON.stringify(itemId));
+    }
   }, [itemId]);
 
   return (

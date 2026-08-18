@@ -7,6 +7,7 @@ export const DataContext = createContext({
   setRange: () => {},
   rangeLeft: "",
   setLeftRange: () => {},
+
   category: "",
   setCategory: () => {},
   id: "",

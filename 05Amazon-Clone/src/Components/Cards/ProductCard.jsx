@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import useData from "../../contexts/data";
 import { Loader } from "../Loader/Loader";
 
@@ -27,6 +27,13 @@ export const ProductCard = ({
     }
   }, [elmId, idCartCount, setIdCartCount]);
 
+  const { id } = useParams();
+  useEffect(() => {
+    if (id) {
+      setItemId(id);
+    }
+  }, [id, setItemId]);
+
   const handleAddToCart = () => {
     if (loading) return;
 
@@ -46,7 +53,7 @@ export const ProductCard = ({
 
   return (
     <div className="h-[500px] w-[241px] bg-white flex flex-col gap-2 items-center border border-gray-100 relative rounded">
-      <Link to="/item">
+      <Link to={`/item/${elmId}`}>
         <div
           onClick={() => setItemId(elmId)}
           className="flex h-full w-full flex-col"
@@ -56,19 +63,19 @@ export const ProductCard = ({
           </div>
 
           <div className="p-2">
-            <div className="font-semibold hover:text-amber-600 cursor-pointer line-clamp-4">
+            <div className="font-normal hover:text-amber-600 cursor-pointer line-clamp-4">
               {description}
             </div>
 
             <div className="text-sm flex items-center">
-              <span className="text-xs font-semibold mr-1">{rating}</span>
+              <span className="text-xs font-semibold mr-1 mt-2">{`Rating: ${rating} ★`}</span>
             </div>
 
             <div>{reviews}</div>
 
-            <div className="text-3xl relative">
+            <div className="text-3xl relative mt-2">
               <span className="absolute text-sm top-1 font-semibold">$</span>
-              <span className="ml-2">{price[0]}</span>
+              <span className="ml-2">{Number(price[0]).toLocaleString()}</span>
               <span className="absolute text-sm top-1 font-semibold">
                 {price[1]}
               </span>

@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { useParams } from "react-router";
+import useData from "../../contexts/data";
+
 export const Card = ({
   img1,
   img2,
@@ -11,6 +15,14 @@ export const Card = ({
   userClass,
   shop,
 }) => {
+  const { setCategory } = useData();
+  const { id } = useParams();
+  useEffect(() => {
+    if (id) {
+      setCategory(id);
+    }
+  }, [id, setCategory]);
+
   return (
     <>
       <div className="h-full bg-white flex flex-col gap-2 pt-[20px] pb-[15px] items-center w-full px-[20px] shadow-lg relative">

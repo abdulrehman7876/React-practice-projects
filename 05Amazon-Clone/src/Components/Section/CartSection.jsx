@@ -37,10 +37,12 @@ export const CartSection = () => {
 
   return (
     <>
-      <section className="bg-gray-200 p-[14px_18px_18px] flex-col-reverse flex sm:flex-row gap-5 w-full">
+      <section className="bg-gray-200 p-[14px_18px_18px] flex-col-reverse flex sm:flex-row gap-5 w-full font-extralight">
         <div className="bg-white w-full sm:w-[75%]">
-          <div className="p-[20px]">
-            <h2 className="text-3xl">Shopping Cart</h2>
+          <div className="p-5 text-justify">
+            <h2 className="text-3xl text-center sm:text-start">
+              Shopping Cart
+            </h2>
             <div className="w-full flex justify-end border-b-1 border-gray-200">
               <div>
                 <span className="text-sm hidden sm:flex">Price</span>
@@ -55,7 +57,7 @@ export const CartSection = () => {
                       img={elm.thumbnail || ""}
                       title={elm.title}
                       description={elm.description}
-                      price={elm.price}
+                      price={elm.price.toLocaleString()}
                       rating={elm.rating}
                       elmId={elm.id}
                       totalPrice={totalPrice}
@@ -75,7 +77,9 @@ export const CartSection = () => {
         <div className="bg-white p-[20px] text-lg h-[150px] w-full sm:w-[25%]">
           <div>
             <span className="font-normal">Subtotal ({cartCount} items): </span>
-            <span className="font-bold">${totalPrice}</span>
+            <span className="font-bold">
+              ${Number(Number(totalPrice).toFixed(2)).toLocaleString()}
+            </span>
             <button className="p-[5px_11px] bg-amber-300 rounded-2xl pb-2 cursor-pointer text-sm w-full">
               Proceed to checkout
             </button>

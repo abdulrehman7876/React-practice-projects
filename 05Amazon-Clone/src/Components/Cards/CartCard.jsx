@@ -23,7 +23,9 @@ export const CartCard = ({
     setTimeout(() => {
       if (cartCount > 0) {
         setCartCount((prev) => prev - 1);
-        setTotalPrice((prev) => (prev * 100 - Number(price) * 100) / 100);
+        setTotalPrice((prev) =>
+          ((prev * 100 - Number(price) * 100) / 100).toFixed(2),
+        );
       }
       if (idCartCount[elmId] < 2) {
         setId(
@@ -79,14 +81,14 @@ export const CartCard = ({
 
   return (
     <>
-      <div className="grid grid-rows-[1.5fr_1fr_0.3fr] sm:grid-rows-[auto] sm:grid-cols-[1.5fr_4fr_0.3fr] py-5 border-b-1 border-gray-200">
-        <div className="h-[200px]">
+      <div className="grid grid-rows-[1.5fr_1fr_0.3fr] sm:grid-rows-[auto] sm:grid-cols-[1.5fr_4fr_0.3fr] py-5 border-b border-gray-200">
+        <div className="h-50 place-items-center">
           <img className="h-full object-cover" src={img} alt="" />
         </div>
         <div>
           <div className="font-semibold">{title}</div>
-          <div className="font-semibold">{description}</div>
-          <div className="flex gap-2 items-center">
+          <div className="font-normal">{description}</div>
+          <div className="flex gap-2 items-center mt-3">
             {loading ? (
               <button className="flex w-26 px-2 py-0.5 pb-1 border-amber-300 border-3 rounded-2xl items-center justify-center font-bold bg-gray-300">
                 <Loader />
@@ -117,7 +119,7 @@ export const CartCard = ({
             </button>
           </div>
         </div>
-        <div className="text-xl font-semibold">${price}</div>
+        <div className="text-xl font-semibold mt-3">${price}</div>
       </div>
     </>
   );

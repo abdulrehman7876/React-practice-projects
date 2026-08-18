@@ -18,16 +18,18 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="" element={<Section />} />
-      <Route path="productsection" element={<ProductSection />} />
+      {/* <Route path="productsection" element={<ProductSection />} /> */}
       <Route path="cartsection" element={<CartSection />} />
       <Route path="searched" element={<SearchProductSection />} />
-      <Route path="item" element={<ItemsSection />} />
-    </Route>
-  )
+      {/* <Route path="item" element={<ItemsSection />} /> */}
+      <Route path="item/:id" element={<ItemsSection />} />
+      <Route path="productsection/:id" element={<ProductSection />} />
+    </Route>,
+  ),
 );
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  </StrictMode>,
 );

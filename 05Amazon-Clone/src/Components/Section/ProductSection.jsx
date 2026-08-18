@@ -14,6 +14,10 @@ export const ProductSection = () => {
     : [];
 
   useEffect(() => {
+    setRange(48000);
+    setLeftRange(1);
+  }, [category, setRange, setLeftRange]);
+  useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
@@ -40,21 +44,28 @@ export const ProductSection = () => {
             <input
               onChange={(e) =>
                 setTempRange(
-                  Math.max(Number(e.target.value), tempLeftRange + 100),
+                  Math.max(Number(e.target.value), tempLeftRange + 9600),
                 )
               }
               min="48"
               max="48000"
-              className="w-40 h-[4px] absolute pointer-events-none
+              className="w-40 h-1 absolute pointer-events-none
               [&::-webkit-slider-thumb]:appearance-none
-              [&::-webkit-slider-thumb]:h-3
-              [&::-webkit-slider-thumb]:w-3
-              [&::-webkit-slider-thumb]:outline-8
+              [&::-webkit-slider-thumb]:bg-white
+              [&::-webkit-slider-thumb]:h-8
+              [&::-webkit-slider-thumb]:w-8
+              [&::-webkit-slider-thumb]:border-7
+              [&::-webkit-slider-thumb]:border-sky-700
               [&::-webkit-slider-thumb]:z-3
               [&::-webkit-slider-thumb]:pointer-events-auto
-              [&::-webkit-slider-thumb]:outline-sky-700
               [&::-webkit-slider-thumb]:rounded-full
-              [&::-webkit-slider-thumb]:bg-white"
+               active:[&::-webkit-slider-thumb]:scale-125
+               active:[&::-webkit-slider-thumb]:outline-black
+               active:[&::-webkit-slider-thumb]:outline-2
+               focus:[&::-webkit-slider-thumb]:scale-125
+               focus:[&::-webkit-slider-thumb]:outline-black
+               focus:[&::-webkit-slider-thumb]:outline-2
+"
               type="range"
               value={tempRange}
               style={{
@@ -67,7 +78,7 @@ export const ProductSection = () => {
             <input
               onChange={(e) =>
                 setTempLeftRange(
-                  Math.min(Number(e.target.value), tempRange - 100),
+                  Math.min(Number(e.target.value), tempRange - 9600),
                 )
               }
               aria-valuemin={tempLeftRange}
@@ -75,16 +86,22 @@ export const ProductSection = () => {
               max="48000"
               className="w-40 h-[4px] absolute pointer-events-none
               [&::-webkit-slider-thumb]:appearance-none 
-              [&::-webkit-slider-thumb]:h-3
+              [&::-webkit-slider-thumb]:h-8
+              [&::-webkit-slider-thumb]:w-8
               [&::-webkit-slider-thumb]:z-2
               [&::-webkit-slider-thumb]:pointer-events-auto
-              [&::-webkit-slider-thumb]:outline-8
-              [&::-webkit-slider-thumb]:outline-sky-700
-              [&::-webkit-slider-thumb]:w-3
+              [&::-webkit-slider-thumb]:border-7
+              [&::-webkit-slider-thumb]:border-sky-700
               [&::-webkit-slider-thumb]:rounded-full
-              [&::-webkit-slider-thumb]:bg-white"
+              [&::-webkit-slider-thumb]:bg-white 
+               active:[&::-webkit-slider-thumb]:scale-125
+               active:[&::-webkit-slider-thumb]:outline-black
+               active:[&::-webkit-slider-thumb]:outline-2
+               focus:[&::-webkit-slider-thumb]:scale-125
+               focus:[&::-webkit-slider-thumb]:outline-black
+               focus:[&::-webkit-slider-thumb]:outline-2"
               type="range"
-              value={rangeLeft}
+              value={tempLeftRange}
               style={{
                 appearance: "none",
                 zIndex: 0,
@@ -98,16 +115,43 @@ export const ProductSection = () => {
             </button>
           </div>
           <div className="font-semibold flex flex-col">
-            <span className=" hover:text-amber-500 cursor-pointer w-max">
+            <span
+              onClick={() => {
+                setTempLeftRange(100);
+                applyRange();
+              }}
+              className=" hover:text-amber-500 cursor-pointer w-max"
+            >
               Up to $100
             </span>
-            <span className=" hover:text-amber-500 cursor-pointer w-max">
+            <span
+              onClick={() => {
+                setTempRange(150);
+                setTempLeftRange(100);
+                applyRange();
+              }}
+              className=" hover:text-amber-500 cursor-pointer w-max"
+            >
               $100 to $150
             </span>
-            <span className=" hover:text-amber-500 cursor-pointer w-max">
+            <span
+              onClick={() => {
+                setTempRange(200);
+                setTempLeftRange(150);
+                applyRange();
+              }}
+              className=" hover:text-amber-500 cursor-pointer w-max"
+            >
               $150 to $200
             </span>
-            <span className=" hover:text-amber-500 cursor-pointer w-max">
+            <span
+              onClick={() => {
+                setTempRange(48000);
+                setTempLeftRange(200);
+                applyRange();
+              }}
+              className=" hover:text-amber-500 cursor-pointer w-max"
+            >
               $200 & above
             </span>
           </div>

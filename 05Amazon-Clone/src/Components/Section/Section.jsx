@@ -178,7 +178,7 @@ export const Section = () => {
             <Link
               onClick={() => setCategory(obj.category)}
               key={ind}
-              to="/productsection"
+              to={`/productsection/${obj.category}`}
             >
               <Card
                 img1={obj.img1}
@@ -196,7 +196,10 @@ export const Section = () => {
             </Link>
           ))}
 
-          <Link to="/productsection" onClick={() => setCategory("laptops")}>
+          <Link
+            to="/productsection/laptops"
+            onClick={() => setCategory("laptops")}
+          >
             <CardFull
               img1="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2024/Stores-Gaming/FinalGraphics/Fuji_Gaming_store_Dashboard_card_2x_EN._SY608_CB564799420_.jpg"
               heading="Gaming"
@@ -210,7 +213,7 @@ export const Section = () => {
               <Link
                 onClick={() => setCategory(obj.category)}
                 key={ind}
-                to="/productsection"
+                to={`/productsection/${obj.category}`}
               >
                 <CardFull
                   img1={obj.thumbnail}
